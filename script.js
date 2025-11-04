@@ -2,7 +2,18 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        
+        // If clicking on brand/home link, scroll to top
+        if (href === '#main-content' && this.classList.contains('nav-brand-link')) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return;
+        }
+        
+        const target = document.querySelector(href);
         if (target) {
             // Calculate offset to account for sticky navbar
             const navbarHeight = document.querySelector('.navbar').offsetHeight;
@@ -93,6 +104,41 @@ document.addEventListener('focusin', function(e) {
     }
 });
 
+// Reading Progress Indicator
+function updateReadingProgress() {
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+    const progressBar = document.getElementById('reading-progress');
+    if (progressBar) {
+        progressBar.style.width = scrollPercent + '%';
+    }
+}
+
+window.addEventListener('scroll', updateReadingProgress);
+updateReadingProgress();
+
+// Back to Top Button
+const backToTopButton = document.getElementById('back-to-top');
+
+function toggleBackToTop() {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+}
+
+window.addEventListener('scroll', toggleBackToTop);
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
 // Add animation on scroll
 const observerOptions = {
     threshold: 0.1,
@@ -117,4 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+    
+    // Initialize back to top button
+    toggleBackToTop();
 });
