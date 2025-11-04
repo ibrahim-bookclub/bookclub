@@ -798,15 +798,18 @@ html {
         height: 500px;
     }
 
-    .book-card {
-        padding: 1.8rem 1.5rem;
+    .books-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 0 0.5rem;
     }
 
     .book-card {
-        min-width: auto;
+        width: 100%;
         max-width: 100%;
+        min-width: 0;
         aspect-ratio: 2 / 1;
-        padding: 1.2rem 1.5rem;
+        padding: 1.5rem 1.8rem;
     }
 
     .book-card.featured {
@@ -814,17 +817,14 @@ html {
         max-width: 100%;
     }
 
-    .books-grid {
-        flex-direction: column;
+    .book-title {
+        font-size: 1.35rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
-    .book-card {
-        flex: 1 1 100%;
-        min-width: auto;
-    }
-
-    .book-card.featured {
-        flex: 1 1 100%;
+    .book-author {
+        font-size: 1.05rem;
     }
 }
 
