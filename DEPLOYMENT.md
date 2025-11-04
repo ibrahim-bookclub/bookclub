@@ -53,17 +53,16 @@
 
 ## Custom Domain (Optional)
 
-1. Add `CNAME` file with your domain:
-   ```
-   yourdomain.com
-   ```
+See `CUSTOM_DOMAIN.md` for detailed instructions.
 
+Quick setup:
+1. Add `CNAME` file with your domain (e.g., `yourdomain.com`)
 2. Configure DNS:
-   - Add CNAME record pointing to `username.github.io`
-   - Or add A records for GitHub IPs
-
+   - A records for root domain: `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+   - CNAME for www: `username.github.io`
 3. Update GitHub Pages settings:
    - Add custom domain in Settings > Pages
+   - Enable "Enforce HTTPS"
 
 ## Troubleshooting
 

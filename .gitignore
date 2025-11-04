@@ -21,3 +21,6 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *.temp
+
+# CNAME - uncomment if you want to ignore it (not recommended)
+# CNAME

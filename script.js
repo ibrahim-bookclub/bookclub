@@ -4,10 +4,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            // Calculate offset to account for sticky navbar
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
+            
+            // Prevent iframe from capturing focus
+            setTimeout(() => {
+                if (target.id === 'join') {
+                    const typeformIframe = target.querySelector('iframe');
+                    if (typeformIframe) {
+                        typeformIframe.blur();
+                    }
+                }
+                window.focus();
+            }, 500);
         }
     });
 });
