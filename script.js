@@ -119,6 +119,21 @@ function updateReadingProgress() {
 window.addEventListener('scroll', updateReadingProgress);
 updateReadingProgress();
 
+// Navbar scroll effect
+const navbar = document.querySelector('.navbar');
+if (navbar) {
+    function handleNavbarScroll() {
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+    
+    window.addEventListener('scroll', handleNavbarScroll);
+    handleNavbarScroll(); // Check initial state
+}
+
 // Back to Top Button
 const backToTopButton = document.getElementById('back-to-top');
 

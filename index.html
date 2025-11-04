@@ -27,7 +27,25 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "نادي إبراهيم للقراءة",
+        "description": "نادي إلكتروني للقراءة والنقاش يجمع بين قُرّاء من شتّى بقاع المعمورة",
+        "url": "https://ibrahim-bookclub.github.io/bookclub",
+        "sameAs": [],
+        "memberOf": {
+            "@type": "BookClub",
+            "name": "نادي إبراهيم للقراءة",
+            "description": "نادي قراءة إلكتروني يجمع محبي الكتب والنقاش الأدبي"
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Skip to content link for accessibility -->
@@ -170,7 +188,7 @@
     <!-- Currently Reading Section -->
     <section class="current-reading-section">
         <div class="container">
-            <h2 class="section-title">الكتاب الحالي <span class="reading-badge">📖 نقرأ الآن</span></h2>
+            <h2 class="section-title">الكتاب الحالي</h2>
             <div class="book-card featured">
                 <div class="book-info">
                     <h3 class="book-title">
