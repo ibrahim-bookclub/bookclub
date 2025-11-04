@@ -124,6 +124,12 @@ body {
     align-items: center;
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .nav-brand-link {
     text-decoration: none;
     display: block;
@@ -166,6 +172,31 @@ body {
     opacity: 1;
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
+}
+
+/* Nav Actions */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus {
+    opacity: 1;
+    background-color: var(--bg-light);
+    outline: none;
 }
 
 /* Mobile Menu Toggle */
@@ -264,6 +295,22 @@ body {
     margin-bottom: 2.5rem;
     color: var(--primary-color);
     letter-spacing: -0.02em;
+}
+
+.current-reading-section .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reading-badge {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    opacity: 0.8;
+    font-style: italic;
+    display: block;
 }
 
 .section-subtitle {
@@ -471,7 +518,9 @@ html {
     .reading-progress,
     .skip-link,
     .typeform-container,
-    .cta-button {
+    .cta-button,
+    .mobile-menu-toggle,
+    .theme-toggle {
         display: none !important;
     }
     
@@ -531,6 +580,13 @@ html {
 
 .book-card:hover {
     border-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    transition: all 0.3s ease;
+}
+
+.book-card {
+    transition: all 0.3s ease;
 }
 
 .book-card.featured {
@@ -594,6 +650,39 @@ html {
     font-weight: 400;
 }
 
+/* Dark Mode */
+[data-theme="dark"] {
+    --primary-color: #d4c4b0;
+    --secondary-color: #8b6f47;
+    --accent-color: #a0826d;
+    --text-color: #f5f1eb;
+    --bg-light: #2c1810;
+    --bg-white: #3d2817;
+    --border-color: #5d4037;
+}
+
+[data-theme="dark"] .navbar,
+[data-theme="dark"] .hero,
+[data-theme="dark"] .rules-section,
+[data-theme="dark"] .current-reading-section {
+    background-color: var(--bg-white);
+}
+
+[data-theme="dark"] .join-section,
+[data-theme="dark"] .books-section,
+[data-theme="dark"] .footer {
+    background-color: var(--bg-light);
+}
+
+[data-theme="dark"] .book-card {
+    background-color: var(--bg-light);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .typeform-container {
+    border-color: var(--border-color);
+}
+
 /* Responsive Design */
 @media (max-width: 900px) {
     .books-grid {
@@ -612,6 +701,16 @@ html {
     
     .mobile-menu-toggle {
         display: flex;
+    }
+    
+    .nav-actions {
+        gap: 0.5rem;
+    }
+    
+    .theme-toggle {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
     }
     
     .nav-menu {

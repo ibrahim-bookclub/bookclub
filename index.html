@@ -41,11 +41,16 @@
                     <h1>نادي إبراهيم للقراءة</h1>
                 </a>
             </div>
-            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="قائمة التنقل">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل الوضع">
+                    <span id="theme-icon">🌙</span>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="قائمة التنقل">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#rules">قوانين النادي</a></li>
                 <li><a href="#books">الكتب</a></li>
@@ -165,7 +170,7 @@
     <!-- Currently Reading Section -->
     <section class="current-reading-section">
         <div class="container">
-            <h2 class="section-title">الكتاب الحالي</h2>
+            <h2 class="section-title">الكتاب الحالي <span class="reading-badge">📖 نقرأ الآن</span></h2>
             <div class="book-card featured">
                 <div class="book-info">
                     <h3 class="book-title">
