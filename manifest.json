@@ -1,0 +1,19 @@
+{
+  "name": "نادي إبراهيم للقراءة",
+  "short_name": "نادي القراءة",
+  "description": "نادي إلكتروني للقراءة والنقاش",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#faf8f5",
+  "theme_color": "#3d2817",
+  "orientation": "portrait-primary",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
