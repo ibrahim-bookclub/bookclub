@@ -41,7 +41,12 @@
                     <h1>نادي إبراهيم للقراءة</h1>
                 </a>
             </div>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="قائمة التنقل">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
                 <li><a href="#rules">قوانين النادي</a></li>
                 <li><a href="#books">الكتب</a></li>
                 <li><a href="#join">الاشتراك</a></li>
@@ -107,18 +112,50 @@
             <h2 class="section-title">الاشتراك في النادي</h2>
             <p class="section-subtitle">التحق بنادي القراءة على <strong>تليجرام</strong> وانضمّ إلى ركب القرّاء</p>
             <div class="typeform-container">
-                <div data-tf-live="01K90CSD3KVC0PN48CF4YJNBJM"></div>
+                <div class="typeform-loading" id="typeform-loading">
+                    <div class="loading-spinner"></div>
+                    <p>جاري تحميل النموذج...</p>
+                </div>
+                <div data-tf-live="01K90CSD3KVC0PN48CF4YJNBJM" id="typeform-content"></div>
             </div>
             <script>
-                // Prevent Typeform from blocking scroll
+                // Handle Typeform loading state
                 window.addEventListener('load', function() {
-                    setTimeout(function() {
+                    const loadingElement = document.getElementById('typeform-loading');
+                    const typeformContent = document.getElementById('typeform-content');
+                    
+                    // Check for Typeform iframe periodically
+                    const checkInterval = setInterval(function() {
                         const iframes = document.querySelectorAll('.typeform-container iframe');
-                        iframes.forEach(function(iframe) {
-                            iframe.setAttribute('tabindex', '-1');
-                            iframe.style.outline = 'none';
-                        });
-                    }, 3000);
+                        if (iframes.length > 0) {
+                            // Typeform loaded
+                            if (loadingElement) {
+                                loadingElement.classList.add('hidden');
+                            }
+                            if (typeformContent) {
+                                typeformContent.classList.add('loaded');
+                            }
+                            
+                            // Prevent iframe from blocking scroll
+                            iframes.forEach(function(iframe) {
+                                iframe.setAttribute('tabindex', '-1');
+                                iframe.style.outline = 'none';
+                            });
+                            
+                            clearInterval(checkInterval);
+                        }
+                    }, 500);
+                    
+                    // Hide loading after max 10 seconds
+                    setTimeout(function() {
+                        clearInterval(checkInterval);
+                        if (loadingElement) {
+                            loadingElement.classList.add('hidden');
+                        }
+                        if (typeformContent) {
+                            typeformContent.classList.add('loaded');
+                        }
+                    }, 10000);
                 });
             </script>
             <script src="//embed.typeform.com/next/embed.js"></script>
