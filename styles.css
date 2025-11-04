@@ -713,6 +713,10 @@ html {
         font-size: 1.1rem;
     }
     
+    .books-section .section-title {
+        display: none;
+    }
+    
     .nav-menu {
         position: fixed;
         top: 70px;
