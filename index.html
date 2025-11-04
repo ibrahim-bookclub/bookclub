@@ -99,6 +99,18 @@
             <div class="typeform-container">
                 <div data-tf-live="01K90CSD3KVC0PN48CF4YJNBJM"></div>
             </div>
+            <script>
+                // Prevent Typeform from blocking scroll
+                window.addEventListener('load', function() {
+                    setTimeout(function() {
+                        const iframes = document.querySelectorAll('.typeform-container iframe');
+                        iframes.forEach(function(iframe) {
+                            iframe.setAttribute('tabindex', '-1');
+                            iframe.style.outline = 'none';
+                        });
+                    }, 3000);
+                });
+            </script>
             <script src="//embed.typeform.com/next/embed.js"></script>
         </div>
     </section>

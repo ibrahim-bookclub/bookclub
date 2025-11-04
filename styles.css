@@ -7,6 +7,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
+    overflow-y: auto !important;
 }
 
 :root {
@@ -250,24 +251,54 @@ body {
     border: 1px solid var(--border-color);
     overflow: hidden;
     scroll-margin-top: 100px;
-    pointer-events: auto;
+    position: relative;
+    isolation: isolate;
+}
+
+.typeform-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: transparent;
+    z-index: 10;
+    pointer-events: none;
 }
 
 .typeform-container iframe {
     width: 100%;
     height: 600px;
     border: none;
-    pointer-events: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 /* Prevent typeform from capturing scroll focus */
 .join-section {
     scroll-margin-top: 100px;
     scroll-behavior: smooth;
+    position: relative;
 }
 
 .join-section:focus {
     outline: none;
+}
+
+.join-section:focus-within {
+    outline: none;
+}
+
+/* Ensure page remains scrollable even when iframe has focus */
+body {
+    overflow-x: hidden;
+    overflow-y: auto !important;
+}
+
+html {
+    overflow-y: auto !important;
 }
 
 /* Current Reading Section */

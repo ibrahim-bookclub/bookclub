@@ -19,12 +19,78 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     const typeformIframe = target.querySelector('iframe');
                     if (typeformIframe) {
                         typeformIframe.blur();
+                        typeformIframe.setAttribute('tabindex', '-1');
                     }
                 }
+                // Keep focus on window to prevent iframe from stealing it
                 window.focus();
+                document.body.focus();
             }, 500);
         }
     });
+});
+
+// Prevent typeform iframe from capturing focus and blocking scroll
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for Typeform to load
+    setTimeout(() => {
+        const typeformIframe = document.querySelector('.typeform-container iframe');
+        if (typeformIframe) {
+            // Prevent iframe from receiving focus
+            typeformIframe.setAttribute('tabindex', '-1');
+            
+            // Add blur event listener
+            typeformIframe.addEventListener('focus', function(e) {
+                e.preventDefault();
+                this.blur();
+                window.focus();
+            });
+            
+            // Prevent iframe from blocking scroll
+            typeformIframe.style.pointerEvents = 'auto';
+        }
+        
+        // Monitor for dynamically loaded iframes
+        const observer = new MutationObserver((mutations) => {
+            const iframes = document.querySelectorAll('.typeform-container iframe');
+            iframes.forEach(iframe => {
+                if (!iframe.hasAttribute('data-scroll-fixed')) {
+                    iframe.setAttribute('tabindex', '-1');
+                    iframe.setAttribute('data-scroll-fixed', 'true');
+                    iframe.addEventListener('focus', function(e) {
+                        e.preventDefault();
+                        this.blur();
+                        window.focus();
+                    });
+                }
+            });
+        });
+        
+        const typeformContainer = document.querySelector('.typeform-container');
+        if (typeformContainer) {
+            observer.observe(typeformContainer, { childList: true, subtree: true });
+        }
+    }, 2000);
+});
+
+// Prevent page from losing scroll capability
+let scrollBlocked = false;
+window.addEventListener('wheel', function(e) {
+    if (!scrollBlocked) {
+        scrollBlocked = true;
+        setTimeout(() => {
+            scrollBlocked = false;
+        }, 100);
+    }
+}, { passive: true });
+
+// Ensure window stays scrollable
+document.addEventListener('focusin', function(e) {
+    if (e.target.tagName === 'IFRAME' && e.target.closest('.typeform-container')) {
+        e.preventDefault();
+        e.target.blur();
+        window.focus();
+    }
 });
 
 // Add animation on scroll
