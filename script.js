@@ -183,30 +183,64 @@ if (mobileMenuToggle && navMenu) {
 }
 
 // Dark Mode Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
-
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', currentTheme);
-updateThemeIcon(currentTheme);
-
-if (themeToggle && themeIcon) {
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-}
-
-function updateThemeIcon(theme) {
-    if (themeIcon) {
-        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+// Apply theme immediately to prevent flash
+(function() {
+    try {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    } catch (e) {
+        // Fallback if localStorage is not available
+        document.documentElement.setAttribute('data-theme', 'light');
     }
-}
+})();
+
+// Initialize after DOM loads
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    // Update icon based on current theme
+    function updateThemeIcon() {
+        if (themeIcon) {
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            themeIcon.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+    }
+    
+    // Set initial icon
+    updateThemeIcon();
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            try {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.documentElement.setAttribute('data-theme', newTheme);
+                
+                try {
+                    localStorage.setItem('theme', newTheme);
+                } catch (e) {
+                    console.warn('Could not save theme to localStorage:', e);
+                }
+                
+                updateThemeIcon();
+            } catch (error) {
+                console.error('Error toggling theme:', error);
+            }
+        });
+        
+        // Also handle touch events for mobile
+        themeToggle.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            themeToggle.click();
+        });
+    }
+});
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
