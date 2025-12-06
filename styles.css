@@ -1169,18 +1169,12 @@ html {
     border-color: var(--primary-color);
 }
 
-.benefit-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
 .benefit-item h3 {
     font-family: var(--font-cairo);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     line-height: 1.4;
 }
 
@@ -1199,10 +1193,6 @@ html {
     
     .benefit-item {
         padding: 1.5rem;
-    }
-    
-    .benefit-icon {
-        font-size: 2rem;
     }
     
     .benefit-item h3 {
