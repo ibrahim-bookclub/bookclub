@@ -678,6 +678,7 @@ html {
 .book-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 100%;
     text-align: center;
 }
@@ -966,6 +967,25 @@ html {
 @media (max-width: 768px) {
     .reading-month {
         font-size: 0.8rem;
+    }
+    
+    .book-card.featured {
+        padding: 2rem 1.5rem;
+        min-height: 140px;
+    }
+    
+    .book-info {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .book-title {
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+    }
+    
+    .book-author {
+        margin-bottom: 0.8rem;
     }
 }
 
