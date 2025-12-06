@@ -679,6 +679,7 @@ html {
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-align: center;
 }
 
 .book-title {
@@ -950,9 +951,7 @@ html {
 /* Reading Status Styling */
 .reading-status {
     margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
 }
 
 .reading-month {
