@@ -670,10 +670,11 @@ html {
 }
 
 .book-card.featured {
-    max-width: 320px;
-    aspect-ratio: 2.5 / 1;
+    max-width: 350px;
+    aspect-ratio: auto;
     margin: 0 auto;
-    min-height: 140px;
+    min-height: 180px;
+    height: auto;
 }
 
 .book-info {
@@ -906,14 +907,16 @@ html {
     .book-card.featured {
         width: 100%;
         max-width: 100%;
-        aspect-ratio: auto;
-        min-height: 140px;
+        min-height: 180px;
+        height: auto;
     }
 
     .book-title {
-        font-size: 1.35rem;
+        font-size: 1.2rem;
         word-wrap: break-word;
         overflow-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.4;
     }
 
     .book-author {
@@ -974,20 +977,21 @@ html {
     }
     
     .book-card.featured {
-        aspect-ratio: auto;
-        min-height: 160px;
-        padding: 1.5rem;
+        min-height: 200px;
+        height: auto;
+        padding: 2rem 1.5rem;
     }
     
     .book-title {
-        font-size: 1.2rem;
-        line-height: 1.5;
-        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 1.4;
+        margin-bottom: 0.8rem;
     }
     
     .book-author {
-        font-size: 0.95rem;
-        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.3;
     }
 }
 
