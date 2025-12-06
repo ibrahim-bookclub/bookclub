@@ -1,0 +1,25 @@
+{
+  "name": "bookclub",
+  "version": "1.0.0",
+  "description": "موقع إلكتروني لنادي القراءة العربي",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-book": "node update-book.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibrahim-bookclub/bookclub.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ibrahim-bookclub/bookclub/issues"
+  },
+  "homepage": "https://github.com/ibrahim-bookclub/bookclub#readme",
+  "dependencies": {
+    "jsdom": "^27.2.0"
+  }
+}

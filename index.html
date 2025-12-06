@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="نادي إلكتروني للقراءة والنقاش يجمع بين قُرّاء من شتّى بقاع المعمورة">
@@ -26,9 +24,9 @@
     
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Cairo:wght@400;600;700&amp;family=Aref+Ruqaa:wght@400;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Cairo:wght@400;600;700&amp;family=Aref+Ruqaa:wght@400;700&amp;display=swap" rel="stylesheet"></noscript>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -188,23 +186,61 @@
     <!-- Currently Reading Section -->
     <section class="current-reading-section">
         <div class="container">
-            <h2 class="section-title">الكتاب الحالي</h2>
-            <div class="book-card featured">
+            <div class="section-header">
+                <h2 class="section-title">الكتاب الحالي</h2>
+                <button class="update-book-btn" id="update-book-btn">تحديث الكتاب</button>
+            </div>
+            <div id="current-book" class="book-card featured">
                 <div class="book-info">
                     <h3 class="book-title">
-                        <a href="https://www.goodreads.com/book/show/6673050" target="_blank">أباطيل وأسمار</a>
+                        <a href="https://www.goodreads.com/book/show/33852298" target="_blank" id="current-book-link">أرض جوفاء: الهندسة المعمارية للاحتلال الإسرائيلي</a>
                     </h3>
-                    <p class="book-author">محمود محمد شاكر</p>
+                    <p class="book-author" id="current-book-author">Eyal Weizman,  باسل وطفة (ترجمة)</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Update Book Modal -->
+    <div id="update-book-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>تحديث الكتاب الحالي</h3>
+                <button class="close-modal" id="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>سيتم نقل الكتاب الحالي إلى قائمة الكتب المقروءة سابقاً وإضافة كتاب جديد.</p>
+                
+                <form id="book-update-form">
+                    <div class="form-group">
+                        <label for="new-book-title">عنوان الكتاب الجديد:</label>
+                        <input type="text" id="new-book-title" name="title" required="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-book-author">المؤلف:</label>
+                        <input type="text" id="new-book-author" name="author" required="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-book-link">رابط الكتاب (اختياري):</label>
+                        <input type="url" id="new-book-link" name="link" placeholder="https://www.goodreads.com/...">
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="cancel-btn" id="cancel-update">إلغاء</button>
+                        <button type="submit" class="confirm-btn">تحديث</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Previously Read Books Section -->
     <section id="books" class="books-section">
         <div class="container">
             <h2 class="section-title">الكتب التي تمت قراءتها سابقاً</h2>
-            <div class="books-grid">
+            <div id="books-grid" class="books-grid"><div class="book-card"><div class="book-info"><h3 class="book-title"><a href="https://www.goodreads.com/book/show/6673050" target="_blank">أباطيل وأسمار</a></h3><p class="book-author">محمود محمد شاكر</p></div></div>
                 <div class="book-card">
                     <div class="book-info">
                         <h3 class="book-title">
@@ -228,11 +264,12 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; ٢٠٢٥ نادي إبراهيم للقراءة. جميع الحقوق محفوظة.</p>
+                <p>© ٢٠٢٥ نادي إبراهيم للقراءة. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-</body>
-</html>
+
+
+</body></html>
