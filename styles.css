@@ -953,46 +953,19 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.status-badge {
-    background: linear-gradient(135deg, var(--primary-color), #34a853);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    font-family: var(--font-cairo);
-    box-shadow: 0 2px 8px rgba(41, 128, 85, 0.2);
-    animation: subtle-pulse 3s ease-in-out infinite;
-}
-
-@keyframes subtle-pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
 }
 
 .reading-month {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: var(--font-cairo);
     font-weight: 500;
-    background: var(--card-background);
-    padding: 0.3rem 0.8rem;
-    border-radius: 15px;
-    border: 1px solid var(--border-color);
+    opacity: 0.8;
 }
 
 /* Mobile adjustments for reading status */
 @media (max-width: 768px) {
-    .reading-status {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .status-badge, .reading-month {
+    .reading-month {
         font-size: 0.8rem;
     }
 }
