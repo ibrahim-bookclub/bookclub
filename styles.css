@@ -1058,6 +1058,73 @@ html {
     }
 }
 
+/* Hero Quote Styling */
+.hero-quote {
+    margin-top: 2.5rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.hero-quote blockquote {
+    position: relative;
+    background: rgba(41, 128, 85, 0.05);
+    border-right: 4px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.hero-quote blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 4rem;
+    color: var(--primary-color);
+    opacity: 0.3;
+    font-family: 'Aref Ruqaa', serif;
+}
+
+.hero-quote p {
+    font-family: 'Aref Ruqaa', 'Amiri', serif;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
+
+.hero-quote cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--font-cairo);
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-style: normal;
+}
+
+@media (max-width: 768px) {
+    .hero-quote {
+        margin-top: 2rem;
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero-quote blockquote {
+        padding: 1rem 1.5rem;
+    }
+    
+    .hero-quote p {
+        font-size: 1.1rem;
+    }
+    
+    .hero-quote cite {
+        font-size: 0.85rem;
+    }
+}
+
 /* Quick Stats Styling */
 .quick-stats {
     display: flex;
