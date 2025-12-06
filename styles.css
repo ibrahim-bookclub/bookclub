@@ -670,9 +670,10 @@ html {
 }
 
 .book-card.featured {
-    max-width: 280px;
-    aspect-ratio: 2 / 1;
+    max-width: 320px;
+    aspect-ratio: 2.5 / 1;
     margin: 0 auto;
+    min-height: 140px;
 }
 
 .book-info {
@@ -681,6 +682,7 @@ html {
     justify-content: center;
     height: 100%;
     text-align: center;
+    gap: 0.5rem;
 }
 
 .book-title {
@@ -904,6 +906,8 @@ html {
     .book-card.featured {
         width: 100%;
         max-width: 100%;
+        aspect-ratio: auto;
+        min-height: 140px;
     }
 
     .book-title {
@@ -970,22 +974,20 @@ html {
     }
     
     .book-card.featured {
-        padding: 2rem 1.5rem;
-        min-height: 140px;
-    }
-    
-    .book-info {
-        justify-content: center;
-        align-items: center;
+        aspect-ratio: auto;
+        min-height: 160px;
+        padding: 1.5rem;
     }
     
     .book-title {
-        margin-bottom: 0.8rem;
-        line-height: 1.4;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
     }
     
     .book-author {
-        margin-bottom: 0.8rem;
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
     }
 }
 
