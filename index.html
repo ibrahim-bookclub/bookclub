@@ -204,7 +204,6 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">الكتاب الحالي</h2>
-                <button class="update-book-btn" id="update-book-btn">تحديث الكتاب</button>
             </div>
             <div id="current-book" class="book-card featured">
                 <div class="book-info">
@@ -220,41 +219,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Update Book Modal -->
-    <div id="update-book-modal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>تحديث الكتاب الحالي</h3>
-                <button class="close-modal" id="close-modal">×</button>
-            </div>
-            <div class="modal-body">
-                <p>سيتم نقل الكتاب الحالي إلى قائمة الكتب المقروءة سابقاً وإضافة كتاب جديد.</p>
-                
-                <form id="book-update-form">
-                    <div class="form-group">
-                        <label for="new-book-title">عنوان الكتاب الجديد:</label>
-                        <input type="text" id="new-book-title" name="title" required="">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="new-book-author">المؤلف:</label>
-                        <input type="text" id="new-book-author" name="author" required="">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="new-book-link">رابط الكتاب (اختياري):</label>
-                        <input type="url" id="new-book-link" name="link" placeholder="https://www.goodreads.com/...">
-                    </div>
-                    
-                    <div class="modal-actions">
-                        <button type="button" class="cancel-btn" id="cancel-update">إلغاء</button>
-                        <button type="submit" class="confirm-btn">تحديث</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <!-- Previously Read Books Section -->
     <section id="books" class="books-section">
