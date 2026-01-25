@@ -135,6 +135,20 @@ function updateBookInHTML(newBook) {
         }
     }
 
+    // Update the reading month to current month
+    const readingMonth = document.querySelector('.reading-month');
+    if (readingMonth) {
+        const arabicMonths = [
+            'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+            'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+        ];
+        const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+        const now = new Date();
+        const month = arabicMonths[now.getMonth()];
+        const year = String(now.getFullYear()).split('').map(d => arabicNumerals[parseInt(d)]).join('');
+        readingMonth.textContent = `${month} ${year}`;
+    }
+
     // Write updated HTML back to file
     const updatedHTML = dom.serialize();
     fs.writeFileSync(htmlPath, updatedHTML);
