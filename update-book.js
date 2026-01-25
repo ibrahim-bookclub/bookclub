@@ -119,7 +119,22 @@ function updateBookInHTML(newBook) {
     
     // Insert at the beginning of the books grid
     booksGrid.insertBefore(newBookCard, booksGrid.firstChild);
-    
+
+    // Update the books counter (أسفار طالعناها)
+    const statNumbers = document.querySelectorAll('.stat-number');
+    for (const stat of statNumbers) {
+        const label = stat.parentElement.querySelector('.stat-label');
+        if (label && label.textContent.includes('أسفار طالعناها')) {
+            // Count all book cards in the books grid
+            const bookCount = booksGrid.querySelectorAll('.book-card').length;
+            // Convert to Arabic numerals
+            const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+            const arabicCount = String(bookCount).split('').map(d => arabicNumerals[parseInt(d)]).join('');
+            stat.textContent = arabicCount + '+';
+            break;
+        }
+    }
+
     // Write updated HTML back to file
     const updatedHTML = dom.serialize();
     fs.writeFileSync(htmlPath, updatedHTML);
