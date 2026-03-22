@@ -1612,8 +1612,8 @@ html {
 }
 
 .benefit-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(41, 128, 85, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(61, 40, 23, 0.15);
     border-color: var(--primary-color);
 }
 
