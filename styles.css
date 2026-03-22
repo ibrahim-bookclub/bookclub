@@ -372,6 +372,25 @@ body {
     line-height: 1.6;
     letter-spacing: 0.1em;
     word-spacing: 0.25em;
+    overflow: hidden;
+    white-space: nowrap;
+    border-left: 3px solid var(--primary-color);
+    animation: typewriter 3s steps(30) 0.5s forwards, blink 0.8s step-end infinite;
+    width: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@keyframes typewriter {
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
 }
 
 .hero-description {
