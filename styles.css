@@ -812,7 +812,10 @@ html {
     height: 120px;
     object-fit: cover;
     border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        4px 0 8px rgba(0, 0, 0, 0.05);
     flex-shrink: 0;
 }
 
