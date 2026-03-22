@@ -1203,13 +1203,15 @@ html {
         width: 80%;
         max-width: 300px;
         height: calc(100vh - 70px);
-        background-color: var(--bg-white);
+        background-color: rgba(250, 248, 245, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         flex-direction: column;
         gap: 0;
         padding: 2rem 0;
         border-left: 1px solid var(--border-color);
         transition: right 0.3s ease;
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
         z-index: 999;
     }
     
