@@ -185,10 +185,9 @@ body {
 .nav-menu a {
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 400;
+    font-weight: 500;
     transition: color 0.2s ease;
     font-size: 1.1rem;
-    opacity: 0.8;
 }
 
 .nav-menu a:hover,
@@ -383,7 +382,6 @@ body {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    opacity: 0.85;
 }
 
 .cta-button {
@@ -407,6 +405,16 @@ body {
     outline-offset: 2px;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(93, 64, 55, 0.2);
+}
+
+/* Section Dividers */
+.section-divider {
+    width: 100%;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q300 0 600 20 T1200 20' fill='none' stroke='%238b6f47' stroke-width='1' opacity='0.3'/%3E%3Ccircle cx='600' cy='20' r='4' fill='%238b6f47' opacity='0.4'/%3E%3Ccircle cx='300' cy='20' r='2' fill='%238b6f47' opacity='0.2'/%3E%3Ccircle cx='900' cy='20' r='2' fill='%238b6f47' opacity='0.2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 /* Section Titles */
@@ -495,7 +503,6 @@ body {
     line-height: 1.8;
     color: var(--text-color);
     max-width: 700px;
-    opacity: 0.9;
 }
 
 .rule-content p strong {
@@ -525,6 +532,96 @@ body {
 .section-subtitle strong {
     font-weight: 700;
     color: var(--primary-color);
+}
+
+/* How It Works Section */
+.how-it-works-section {
+    padding: 4rem 0;
+    background-color: var(--bg-light);
+}
+
+.timeline {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+    position: relative;
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '←';
+    position: absolute;
+    left: -1.5rem;
+    top: 2rem;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    opacity: 0.5;
+}
+
+.timeline-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(93, 64, 55, 0.3);
+}
+
+.timeline-content h3 {
+    font-family: 'Aref Ruqaa', 'Amiri', serif;
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .timeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .timeline-item:not(:last-child)::after {
+        content: '↓';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: auto;
+        bottom: -2rem;
+    }
+
+    .timeline-item {
+        max-width: 100%;
+    }
+}
+
+[data-theme="dark"] .how-it-works-section {
+    background-color: var(--bg-light);
 }
 
 /* Join Section */
@@ -808,11 +905,34 @@ html {
 .book-author {
     font-size: 1.05rem;
     color: var(--secondary-color);
-    font-weight: 400;
+    font-weight: 500;
     margin-top: auto;
     font-style: italic;
-    opacity: 0.85;
     margin-bottom: 0;
+}
+
+/* Book Category Badge */
+.book-category {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--bg-white);
+    background-color: var(--secondary-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    font-family: 'Amiri', serif;
+    letter-spacing: 0.02em;
+}
+
+/* Book Cover Hover Effect */
+.book-cover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover .book-cover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Discussions Section */
@@ -843,6 +963,55 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Lazy Video Loading */
+.video-lazy {
+    cursor: pointer;
+    background-color: #000;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+.video-lazy:hover .video-thumbnail {
+    opacity: 0.8;
+}
+
+.video-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 0, 0, 0.9);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.video-play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.play-icon {
+    color: white;
+    font-size: 1.8rem;
+    margin-right: -3px;
 }
 
 .video-title {

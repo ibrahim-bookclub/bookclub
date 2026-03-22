@@ -257,6 +257,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Lazy Load YouTube Videos
+document.addEventListener('DOMContentLoaded', () => {
+    const lazyVideos = document.querySelectorAll('.video-lazy');
+
+    lazyVideos.forEach(video => {
+        video.addEventListener('click', function() {
+            const videoId = this.dataset.videoId;
+            const start = this.dataset.start || 0;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?start=${start}&autoplay=1`;
+            iframe.title = this.querySelector('.video-thumbnail').alt;
+            iframe.frameBorder = '0';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+
+            this.innerHTML = '';
+            this.appendChild(iframe);
+            this.classList.remove('video-lazy');
+        });
+    });
+});
+
 // Scroll Animation Observer
 const scrollObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {

@@ -58,7 +58,7 @@
     <a href="#main-content" class="skip-link">تخطي إلى المحتوى الرئيسي</a>
     
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="القائمة الرئيسية">
         <div class="container">
             <div class="nav-brand">
                 <a href="#main-content" class="nav-brand-link">
@@ -88,13 +88,13 @@
     <div class="reading-progress" id="reading-progress"></div>
     
     <!-- Main Content -->
-    <main id="main-content">
+    <main id="main-content" role="main">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" aria-labelledby="hero-title">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-ornament"></div>
-                <h2 class="hero-title">نادٍ إلكترونيٌّ للقراءةِ والنِّقاش</h2>
+                <h2 class="hero-title" id="hero-title">نادٍ إلكترونيٌّ للقراءةِ والنِّقاش</h2>
                 <p class="hero-description">
                     مجلسٌ للأدبِ والحكمةِ أُسِّسَ تحت رعايةِ <strong>إبراهيم</strong>، يجمعُ في رحابِهِ <strong>طُلّابَ العلمِ من أقطارِ الأرض</strong>؛ يلتقون في <u>حلقةٍ واحدة</u> ليغترفوا من معينِ المعرفة، ويقتبسوا من أنوارِ الكُتُب، ويتدارسوا ما <strong>جادت به القرائحُ من دُررِ الحكمة</strong> ونفائسِ الأدب.
                 </p>
@@ -126,6 +126,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Rules Section -->
     <section id="rules" class="rules-section">
@@ -160,6 +162,40 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section">
+        <div class="container">
+            <h2 class="section-title">كيف يعمل النادي؟</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">١</div>
+                    <div class="timeline-content">
+                        <h3>اختيار الكتاب</h3>
+                        <p>نختار كتابًا جديدًا في بداية كل شهر بالتشاور بين الأعضاء</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">٢</div>
+                    <div class="timeline-content">
+                        <h3>القراءة</h3>
+                        <p>يقرأ كل عضو الكتاب على مدار الشهر بحسب وقته</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">٣</div>
+                    <div class="timeline-content">
+                        <h3>النقاش</h3>
+                        <p>نجتمع عبر جوجل ميت لمناقشة الكتاب وتبادل الأفكار</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
 
     <!-- Join Section with Typeform -->
     <section id="join" class="join-section">
@@ -217,6 +253,8 @@
         </div>
     </section>
 
+    <div class="section-divider" aria-hidden="true"></div>
+
     <!-- Currently Reading Section -->
     <section class="current-reading-section">
         <div class="container">
@@ -226,10 +264,11 @@
             <div id="current-book" class="book-card featured">
                 <img src="covers/tarikh-alkhulafa.webp" alt="تاريخ الخلفاء" class="book-cover" loading="lazy">
                 <div class="book-info">
-                    <h3 class="book-title">
+                                        <h3 class="book-title">
                         <a href="https://www.goodreads.com/book/show/6652754" target="_blank" id="current-book-link">تاريخ الخلفاء</a>
                     </h3>
                     <p class="book-author" id="current-book-author">جلال الدين السيوطي</p>
+                    <span class="book-category">تاريخ</span>
                     <div class="reading-status">
                         <span class="reading-month">مارس ٢٠٢٦</span>
                     </div>
@@ -246,43 +285,49 @@
                 <div class="book-card">
                     <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1278183950i/8534148.jpg" alt="النبأ العظيم" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/ar/book/show/8534148" target="_blank">النبأ العظيم</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/ar/book/show/8534148" target="_blank">النبأ العظيم</a></h3>
                         <p class="book-author">محمد عبد الله دراز</p>
+                        <span class="book-category">علوم قرآن</span>
                     </div>
                 </div>
                 <div class="book-card">
-                    <img src="covers/alqistas-almustaqim.png" alt="القسطاس المستقيم" class="book-cover" loading="lazy">
+                    <img src="covers/alqistas-almustaqim.webp" alt="القسطاس المستقيم" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/book/show/13422264" target="_blank">القسطاس المستقيم</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/book/show/13422264" target="_blank">القسطاس المستقيم</a></h3>
                         <p class="book-author">أبو حامد الغزالي</p>
+                        <span class="book-category">منطق</span>
                     </div>
                 </div>
                 <div class="book-card">
-                    <img src="covers/alanwar-alkashifa.jpg" alt="الأنوار الكاشفة" class="book-cover" loading="lazy">
+                    <img src="covers/alanwar-alkashifa.webp" alt="الأنوار الكاشفة" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/book/show/18071884" target="_blank">الأنوار الكاشفة</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/book/show/18071884" target="_blank">الأنوار الكاشفة</a></h3>
                         <p class="book-author">عبد الرحمن المعلمي اليماني</p>
+                        <span class="book-category">علوم حديث</span>
                     </div>
                 </div>
                 <div class="book-card">
                     <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1484344477i/33852298.jpg" alt="أرض جوفاء" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/book/show/33852298" target="_blank">أرض جوفاء</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/book/show/33852298" target="_blank">أرض جوفاء</a></h3>
                         <p class="book-author">إيال وايزمان</p>
+                        <span class="book-category">سياسة</span>
                     </div>
                 </div>
                 <div class="book-card">
                     <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1393080856i/6673050.jpg" alt="أباطيل وأسمار" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/book/show/6673050" target="_blank">أباطيل وأسمار</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/book/show/6673050" target="_blank">أباطيل وأسمار</a></h3>
                         <p class="book-author">محمود محمد شاكر</p>
+                        <span class="book-category">أدب</span>
                     </div>
                 </div>
                 <div class="book-card">
                     <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1298244062i/10534766.jpg" alt="نشأة الفقه الإسلامي" class="book-cover" loading="lazy">
                     <div class="book-info">
-                        <h3 class="book-title"><a href="https://www.goodreads.com/book/show/10534766" target="_blank">نشأة الفقه الإسلامي</a></h3>
+                                                <h3 class="book-title"><a href="https://www.goodreads.com/book/show/10534766" target="_blank">نشأة الفقه الإسلامي</a></h3>
                         <p class="book-author">وائل حلاق</p>
+                        <span class="book-category">فقه</span>
                     </div>
                 </div>
             </div>
@@ -294,10 +339,13 @@
         <div class="container">
             <h2 class="section-title">حلقات النقاش</h2>
 
-            <!-- Featured Video Embed -->
+            <!-- Featured Video Embed (Lazy Loaded) -->
             <div class="discussion-featured">
-                <div class="video-embed">
-                    <iframe src="https://www.youtube.com/embed/mePv4zE4VfM?start=1519" title="القسطاس المستقيم - الغزالي" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="video-embed video-lazy" data-video-id="mePv4zE4VfM" data-start="1519">
+                    <button class="video-play-btn" aria-label="تشغيل الفيديو">
+                        <span class="play-icon">▶</span>
+                    </button>
+                    <img src="https://img.youtube.com/vi/mePv4zE4VfM/maxresdefault.jpg" alt="القسطاس المستقيم - الغزالي" class="video-thumbnail" loading="lazy">
                 </div>
                 <p class="video-title">القسطاس المستقيم - الغزالي</p>
             </div>
