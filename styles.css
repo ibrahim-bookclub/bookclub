@@ -912,18 +912,26 @@ html {
 }
 
 /* Book Category Badge */
+.book-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.book-card.featured .book-info {
+    align-items: center;
+}
+
 .book-category {
-    display: inline;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     color: var(--bg-white);
     background-color: var(--secondary-color);
-    padding: 0.15rem 0.4rem;
+    padding: 0.1rem 0.35rem;
     border-radius: 3px;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
     font-family: 'Amiri', serif;
-    letter-spacing: 0.02em;
-    line-height: 2;
+    white-space: nowrap;
 }
 
 /* Book Cover Hover Effect */
