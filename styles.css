@@ -1684,7 +1684,21 @@ html {
 
 .stat-item.limited-offer {
     position: relative;
-    animation: gentle-glow 2s ease-in-out infinite alternate;
+    animation: pulse-attention 2s ease-in-out infinite;
+}
+
+.stat-item.limited-offer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(231, 76, 60, 0.15);
+    border-radius: 50%;
+    animation: pulse-ring 2s ease-in-out infinite;
+    z-index: -1;
 }
 
 .stat-item.limited-offer .stat-number {
@@ -1701,9 +1715,15 @@ html {
     font-size: 0.85rem;
 }
 
-@keyframes gentle-glow {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.02); }
+@keyframes pulse-attention {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes pulse-ring {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
 }
 
 .stat-item {
