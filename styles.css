@@ -304,6 +304,18 @@ body {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 Q25 0 50 15 T100 15 T150 15 T200 15' fill='none' stroke='%238b6f47' stroke-width='1.5' opacity='0.6'/%3E%3Ccircle cx='100' cy='15' r='4' fill='%238b6f47' opacity='0.6'/%3E%3Ccircle cx='50' cy='15' r='2' fill='%238b6f47' opacity='0.4'/%3E%3Ccircle cx='150' cy='15' r='2' fill='%238b6f47' opacity='0.4'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
+    animation: floatOrnament 3s ease-in-out infinite;
+}
+
+@keyframes floatOrnament {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
