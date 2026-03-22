@@ -1643,10 +1643,15 @@ html {
 .stat-number {
     display: block;
     font-family: var(--font-cairo);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 0.3rem;
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+    transform: scale(1.1);
 }
 
 .stat-label {
