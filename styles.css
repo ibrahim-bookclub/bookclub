@@ -388,23 +388,22 @@ body {
     display: inline-block;
     background-color: var(--accent-color);
     color: white;
-    padding: 0.9rem 2rem;
+    padding: 1rem 2.5rem;
     text-decoration: none;
-    border-radius: 2px;
-    font-weight: 500;
+    border-radius: 6px;
+    font-weight: 600;
     font-size: 1.15rem;
-    transition: all 0.3s ease;
-    border: 1px solid var(--accent-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    box-shadow: 0 4px 14px rgba(93, 64, 55, 0.3);
 }
 
 .cta-button:hover,
 .cta-button:focus {
-    background-color: transparent;
-    color: var(--accent-color);
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(93, 64, 55, 0.2);
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(93, 64, 55, 0.4);
+    outline: none;
 }
 
 /* Section Dividers */
