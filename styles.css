@@ -267,7 +267,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background-color: var(--bg-white);
+    background: linear-gradient(180deg, var(--bg-white) 0%, var(--bg-light) 100%);
     color: var(--text-color);
     padding: 5rem 0 4rem;
     text-align: center;
