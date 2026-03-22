@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M30 0L60 30L30 60L0 30L30 0z" fill="none" stroke="#8b6f47" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#faf8f5"/>
+  <rect width="1200" height="630" fill="url(#pattern)"/>
+
+  <!-- Decorative border -->
+  <rect x="40" y="40" width="1120" height="550" fill="none" stroke="#8b6f47" stroke-width="2" rx="8"/>
+  <rect x="50" y="50" width="1100" height="530" fill="none" stroke="#8b6f47" stroke-width="1" opacity="0.5" rx="4"/>
+
+  <!-- Main title -->
+  <text x="600" y="280" text-anchor="middle" font-family="serif" font-size="72" font-weight="bold" fill="#3d2817">نادي إبراهيم للقراءة</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="370" text-anchor="middle" font-family="serif" font-size="32" fill="#5d4037">نادٍ إلكترونيٌّ للقراءةِ والنِّقاش</text>
+
+  <!-- Decorative line -->
+  <path d="M400 420 Q500 400 600 420 T800 420" fill="none" stroke="#8b6f47" stroke-width="2" opacity="0.6"/>
+  <circle cx="600" cy="420" r="5" fill="#8b6f47" opacity="0.6"/>
+
+  <!-- Book icons -->
+  <g transform="translate(300, 480)" opacity="0.4">
+    <rect x="0" y="0" width="30" height="40" fill="#3d2817" rx="2"/>
+    <rect x="35" y="5" width="30" height="40" fill="#5d4037" rx="2"/>
+    <rect x="70" y="2" width="30" height="40" fill="#8b6f47" rx="2"/>
+  </g>
+  <g transform="translate(800, 480)" opacity="0.4">
+    <rect x="0" y="2" width="30" height="40" fill="#8b6f47" rx="2"/>
+    <rect x="35" y="5" width="30" height="40" fill="#5d4037" rx="2"/>
+    <rect x="70" y="0" width="30" height="40" fill="#3d2817" rx="2"/>
+  </g>
+</svg>

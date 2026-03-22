@@ -257,16 +257,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Scroll Animation Observer
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.rule-item, .book-card, .typeform-container');
-    animateElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Add fade-in classes to sections
+    const sections = document.querySelectorAll('.rules-section, .join-section, .current-reading-section, .books-section, .discussions-section, .benefits-section, .faq-section');
+    sections.forEach(section => {
+        section.classList.add('fade-in-section');
+        scrollObserver.observe(section);
     });
-    
+
+    // Add fade-in classes to grid items
+    const gridItems = document.querySelectorAll('.book-card, .benefit-item, .faq-item, .discussion-item, .rule-item');
+    gridItems.forEach(item => {
+        item.classList.add('fade-in-item');
+        scrollObserver.observe(item);
+    });
+
     // Initialize back to top button
     toggleBackToTop();
 });

@@ -274,6 +274,36 @@ body {
     text-align: center;
     border-bottom: 1px solid var(--border-color);
     animation: fadeIn 0.8s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30L30 0z' fill='none' stroke='%238b6f47' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Decorative ornament */
+.hero-ornament {
+    margin: 2rem auto 0;
+    width: 200px;
+    height: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 15 Q25 0 50 15 T100 15 T150 15 T200 15' fill='none' stroke='%238b6f47' stroke-width='1.5' opacity='0.6'/%3E%3Ccircle cx='100' cy='15' r='4' fill='%238b6f47' opacity='0.6'/%3E%3Ccircle cx='50' cy='15' r='2' fill='%238b6f47' opacity='0.4'/%3E%3Ccircle cx='150' cy='15' r='2' fill='%238b6f47' opacity='0.4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 @keyframes fadeIn {
@@ -286,6 +316,37 @@ body {
         transform: translateY(0);
     }
 }
+
+/* Scroll Animations */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.fade-in-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delays for grid items */
+.fade-in-item:nth-child(1) { transition-delay: 0.1s; }
+.fade-in-item:nth-child(2) { transition-delay: 0.2s; }
+.fade-in-item:nth-child(3) { transition-delay: 0.3s; }
+.fade-in-item:nth-child(4) { transition-delay: 0.4s; }
+.fade-in-item:nth-child(5) { transition-delay: 0.5s; }
+.fade-in-item:nth-child(6) { transition-delay: 0.6s; }
 
 .hero-content {
     max-width: 800px;
@@ -624,16 +685,26 @@ html {
 
 .book-card {
     background-color: var(--bg-white);
-    padding: 1.5rem 1.8rem;
+    padding: 1.5rem;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
-    aspect-ratio: 2 / 1;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
     width: 100%;
     position: relative;
     overflow: hidden;
     border-radius: 8px;
+}
+
+.book-cover {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
 }
 
 .book-card::before {
@@ -670,20 +741,30 @@ html {
 }
 
 .book-card.featured {
-    max-width: 350px;
-    aspect-ratio: auto;
+    max-width: 400px;
     margin: 0 auto;
-    min-height: 180px;
-    height: auto;
+    padding: 2rem;
+    flex-direction: column;
+    text-align: center;
+}
+
+.book-card.featured .book-cover {
+    width: 120px;
+    height: 180px;
+    margin-bottom: 1rem;
 }
 
 .book-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100%;
+    flex: 1;
+    text-align: right;
+    gap: 0.3rem;
+}
+
+.book-card.featured .book-info {
     text-align: center;
-    gap: 0.5rem;
 }
 
 .book-title {
@@ -1010,15 +1091,23 @@ html {
         width: 100%;
         max-width: 100%;
         min-width: 0;
-        aspect-ratio: 2 / 1;
-        padding: 1.5rem 1.8rem;
+        padding: 1rem;
+    }
+
+    .book-cover {
+        width: 60px;
+        height: 90px;
     }
 
     .book-card.featured {
         width: 100%;
         max-width: 100%;
-        min-height: 180px;
-        height: auto;
+        padding: 1.5rem;
+    }
+
+    .book-card.featured .book-cover {
+        width: 100px;
+        height: 150px;
     }
 
     .book-title {
