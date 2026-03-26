@@ -310,4 +310,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize back to top button
     toggleBackToTop();
+
+    // Animated counter
+    const counters = document.querySelectorAll('.stat-number[data-count]');
+    const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+
+    const toArabicNumeral = (num) => {
+        return String(num).split('').map(d => arabicNumerals[parseInt(d)]).join('') + '+';
+    };
+
+    const animateCounter = (el) => {
+        const target = parseInt(el.dataset.count);
+        let current = 0;
+        const duration = 1500;
+        const step = duration / target;
+
+        const timer = setInterval(() => {
+            current++;
+            el.textContent = toArabicNumeral(current);
+            if (current >= target) {
+                clearInterval(timer);
+            }
+        }, step);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                animateCounter(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
 });

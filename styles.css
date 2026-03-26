@@ -188,14 +188,31 @@ body {
     font-weight: 500;
     transition: color 0.2s ease;
     font-size: 1.1rem;
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after,
+.nav-menu a:focus::after {
+    width: 100%;
 }
 
 .nav-menu a:hover,
 .nav-menu a:focus {
     color: var(--primary-color);
     opacity: 1;
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
+    outline: none;
 }
 
 /* Nav Actions */
@@ -1144,13 +1161,19 @@ html {
 
 /* Dark Mode */
 [data-theme="dark"] {
-    --primary-color: #d4c4b0;
-    --secondary-color: #8b6f47;
-    --accent-color: #a0826d;
+    --primary-color: #e8d5c4;
+    --secondary-color: #c9a86c;
+    --accent-color: #b8956c;
     --text-color: #f5f1eb;
-    --bg-light: #2c1810;
-    --bg-white: #3d2817;
-    --border-color: #5d4037;
+    --bg-light: #1a1410;
+    --bg-white: #252018;
+    --bg-color: #1e1914;
+    --card-background: #2d261f;
+    --border-color: #4a3d32;
+}
+
+[data-theme="dark"] body {
+    background-color: var(--bg-color);
 }
 
 [data-theme="dark"] .navbar,
@@ -1161,7 +1184,8 @@ html {
 }
 
 [data-theme="dark"] .navbar.scrolled {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    background-color: rgba(37, 32, 24, 0.95);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .join-section,
@@ -1171,12 +1195,56 @@ html {
 }
 
 [data-theme="dark"] .book-card {
-    background-color: var(--bg-light);
+    background-color: var(--card-background);
     border-color: var(--border-color);
+}
+
+[data-theme="dark"] .book-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 [data-theme="dark"] .form-container {
     border-color: var(--border-color);
+}
+
+[data-theme="dark"] .section-title {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+[data-theme="dark"] .faq-item {
+    background-color: var(--card-background);
+}
+
+[data-theme="dark"] .faq-question:hover {
+    background: rgba(201, 168, 108, 0.1);
+}
+
+[data-theme="dark"] .benefit-item {
+    background-color: var(--card-background);
+}
+
+[data-theme="dark"] .rule-item {
+    background-color: var(--card-background);
+}
+
+[data-theme="dark"] .cta-button {
+    background-color: var(--secondary-color);
+    color: #1a1410;
+}
+
+[data-theme="dark"] .cta-button:hover {
+    background-color: var(--primary-color);
+}
+
+[data-theme="dark"] .back-to-top {
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+[data-theme="dark"] .testimonials-section {
+    background-color: var(--bg-light);
 }
 
 /* Responsive Design */
@@ -1460,15 +1528,15 @@ html {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
-    
+
     .faq-item {
         padding: 1.5rem;
     }
-    
+
     .faq-item h3 {
         font-size: 1.1rem;
     }
-    
+
     .faq-item p {
         font-size: 0.95rem;
     }
