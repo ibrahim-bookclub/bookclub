@@ -209,54 +209,10 @@
         <div class="container">
             <h2 class="section-title">ادخُل في زُمرةِ أهلِ الأدب</h2>
             <p class="section-subtitle">كُن من <strong>أصحابِ هذا المجلسِ المُبارك</strong> واغتنم هذه الفرصةَ لتحصيلِ المعارفِ ومُدارسةِ الحِكَم</p>
-            <div class="typeform-container">
-                <div class="typeform-loading" id="typeform-loading">
-                    <div class="loading-spinner"></div>
-                    <p>جاري تحميل النموذج...</p>
-                </div>
-                <div data-tf-live="01K90CSD3KVC0PN48CF4YJNBJM" id="typeform-content"></div>
+            <div class="form-container">
+                <div data-youform-embed data-form="ryo12ybp" data-base-url="https://app.youform.com" data-width="100%" data-height="700"></div>
             </div>
-            <script>
-                // Handle Typeform loading state
-                window.addEventListener('load', function() {
-                    const loadingElement = document.getElementById('typeform-loading');
-                    const typeformContent = document.getElementById('typeform-content');
-                    
-                    // Check for Typeform iframe periodically
-                    const checkInterval = setInterval(function() {
-                        const iframes = document.querySelectorAll('.typeform-container iframe');
-                        if (iframes.length > 0) {
-                            // Typeform loaded
-                            if (loadingElement) {
-                                loadingElement.classList.add('hidden');
-                            }
-                            if (typeformContent) {
-                                typeformContent.classList.add('loaded');
-                            }
-                            
-                            // Prevent iframe from blocking scroll
-                            iframes.forEach(function(iframe) {
-                                iframe.setAttribute('tabindex', '-1');
-                                iframe.style.outline = 'none';
-                            });
-                            
-                            clearInterval(checkInterval);
-                        }
-                    }, 500);
-                    
-                    // Hide loading after max 10 seconds
-                    setTimeout(function() {
-                        clearInterval(checkInterval);
-                        if (loadingElement) {
-                            loadingElement.classList.add('hidden');
-                        }
-                        if (typeformContent) {
-                            typeformContent.classList.add('loaded');
-                        }
-                    }, 10000);
-                });
-            </script>
-            <script src="//embed.typeform.com/next/embed.js"></script>
+            <script src="https://app.youform.com/embed.js"></script>
         </div>
     </section>
 

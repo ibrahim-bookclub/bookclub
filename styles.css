@@ -666,79 +666,23 @@ body {
     opacity: 0.8;
 }
 
-.typeform-container {
+/* Form Container */
+.form-container {
     max-width: 700px;
     margin: 0 auto;
-    min-height: 600px;
+    min-height: 700px;
     border: 1px solid var(--border-color);
+    border-radius: 8px;
     overflow: hidden;
-    scroll-margin-top: 100px;
-    position: relative;
-    isolation: isolate;
 }
 
-#typeform-content {
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-#typeform-content.loaded {
-    opacity: 1;
-}
-
-.typeform-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: transparent;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.typeform-container iframe {
+.form-container iframe {
     width: 100%;
-    height: 600px;
+    height: 700px;
     border: none;
-    display: block;
-    position: relative;
-    z-index: 1;
 }
 
-/* Typeform Loading State */
-.typeform-loading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 600px;
-    color: var(--text-color);
-    opacity: 0.7;
-}
-
-.typeform-loading.hidden {
-    display: none;
-}
-
-.loading-spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid var(--border-color);
-    border-top-color: var(--accent-color);
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 1rem;
-}
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Prevent typeform from capturing scroll focus */
+/* Join Section */
 .join-section {
     scroll-margin-top: 100px;
     scroll-behavior: smooth;
@@ -769,7 +713,7 @@ html {
     .back-to-top,
     .reading-progress,
     .skip-link,
-    .typeform-container,
+    .form-container,
     .cta-button,
     .mobile-menu-toggle,
     .theme-toggle {
@@ -1231,7 +1175,7 @@ html {
     border-color: var(--border-color);
 }
 
-[data-theme="dark"] .typeform-container {
+[data-theme="dark"] .form-container {
     border-color: var(--border-color);
 }
 
@@ -1343,13 +1287,13 @@ html {
         min-width: auto;
     }
 
-    .typeform-container {
-        min-height: 500px;
+    .form-container {
+        min-height: 600px;
         border-radius: 0;
     }
 
-    .typeform-container iframe {
-        height: 500px;
+    .form-container iframe {
+        height: 600px;
     }
 
     .books-grid {
