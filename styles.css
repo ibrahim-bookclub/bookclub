@@ -1607,6 +1607,73 @@ html {
     }
 }
 
+/* Weekly Reading Section */
+.weekly-reading-section {
+    padding: 4rem 0;
+    background-color: var(--bg-white);
+}
+
+.weekly-reading-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.weekly-reading-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(61, 40, 23, 0.1);
+    border-color: var(--primary-color);
+}
+
+.weekly-reading-card h3 {
+    font-family: var(--font-amiri);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.weekly-author {
+    font-family: var(--font-cairo);
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.weekly-description {
+    font-family: var(--font-amiri);
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+    .weekly-reading-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .weekly-reading-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .weekly-description {
+        font-size: 1rem;
+    }
+}
+
+[data-theme="dark"] .weekly-reading-section {
+    background-color: var(--bg-white);
+}
+
+[data-theme="dark"] .weekly-reading-card {
+    background: var(--card-background);
+}
+
 /* Benefits Section */
 .benefits-section {
     padding: 4rem 0;
